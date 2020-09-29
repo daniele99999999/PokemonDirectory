@@ -10,6 +10,7 @@ import Foundation
 
 public protocol RepositoryProtocol
 {
-    func repoGetList(limit: Int, page: Int, completion: @escaping (Result<String, Error>) -> Void)
+    func repoGetList(limit: Int, offset: Int, completion: @escaping (Result<String, Error>) -> Void)
     func repoGetDetail(url: URL, completion: @escaping (Result<String, Error>) -> Void)
+    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
 }

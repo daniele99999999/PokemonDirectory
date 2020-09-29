@@ -10,8 +10,9 @@ import Foundation
 
 public protocol APIProtocol
 {
-    func apiGetList(limit: Int, page: Int, completion: @escaping (Result<String, Error>) -> Void)
-    func apiGetDetails(url: URL, completion: @escaping (Result<String, Error>) -> Void)
+    func apiGetList(limit: Int, offset: Int, completion: @escaping (Result<String, Error>) -> Void)
+    func apiGetDetail(url: URL, completion: @escaping (Result<String, Error>) -> Void)
+    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 public protocol APIHandleResponseProtocol
