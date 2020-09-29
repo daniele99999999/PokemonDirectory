@@ -34,8 +34,11 @@ final class ControlFlow
         options.style = .easeOut
         return options
     }
-    
-    func start()
+}
+
+extension ControlFlow: ControlFlowProtocol
+{
+    func flowStart()
     {
         let vc = self.createVC()
         self.globalNavigation.setViewControllers([vc], animated: false)

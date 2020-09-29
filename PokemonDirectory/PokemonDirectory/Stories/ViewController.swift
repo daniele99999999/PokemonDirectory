@@ -12,7 +12,7 @@ class ViewController: BaseViewController
 {
     class func createOne() -> ViewController
     {
-        let vc: ViewController = self.loadFromStoryboard(storyboardName: Constants.Resources.Storyboards.main)
+        let vc: ViewController = self.loadFromStoryboard(storyboardName: Resources.Storyboards.main)
         return vc
     }
     

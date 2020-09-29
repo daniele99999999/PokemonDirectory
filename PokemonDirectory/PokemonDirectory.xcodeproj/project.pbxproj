@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		41CC8099956A3003E449C5AF /* Pods_PokemonDirectoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CCE57E60E37E9E43FA684A /* Pods_PokemonDirectoryTests.framework */; };
+		6483668E2523152900F371E1 /* ControlFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483668D2523152900F371E1 /* ControlFlowProtocol.swift */; };
+		64836690252317AF00F371E1 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483668F252317AF00F371E1 /* PersistenceProtocol.swift */; };
 		648FE7E42521E3CB00345975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE7E32521E3CB00345975 /* AppDelegate.swift */; };
 		648FE7E82521E3CC00345975 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE7E72521E3CC00345975 /* ViewController.swift */; };
 		648FE7FB2521E3CE00345975 /* PokemonDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE7FA2521E3CE00345975 /* PokemonDirectoryTests.swift */; };
@@ -19,10 +21,13 @@
 		648FE8182521F7E300345975 /* ControlFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8172521F7E300345975 /* ControlFlow.swift */; };
 		648FE81B2521F88100345975 /* UIWindow+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE81A2521F88100345975 /* UIWindow+Transitions.swift */; };
 		648FE81E2521F9B900345975 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE81D2521F9B900345975 /* BaseViewController.swift */; };
-		648FE8212521FB3100345975 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8202521FB3100345975 /* Constants.swift */; };
+		648FE8212521FB3100345975 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8202521FB3100345975 /* Resources.swift */; };
 		648FE8232521FBB300345975 /* Color+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8222521FBB300345975 /* Color+Helper.swift */; };
-		648FE8252521FD6600345975 /* AppInfoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8242521FD6600345975 /* AppInfoUtils.swift */; };
 		648FE8272521FE5A00345975 /* UiViewController+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8262521FE5A00345975 /* UiViewController+UIStoryboard.swift */; };
+		64D394CB25228AD900D14F29 /* PropertyWrapperAtomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D394CA25228AD900D14F29 /* PropertyWrapperAtomic.swift */; };
+		64D394CE25228BF500D14F29 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D394CD25228BF500D14F29 /* NetworkProtocol.swift */; };
+		64D394D025228C9400D14F29 /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D394CF25228C9400D14F29 /* ApiProtocol.swift */; };
+		64D394D22522977800D14F29 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D394D12522977800D14F29 /* RepositoryProtocol.swift */; };
 		92FA46931639CBCE9E45C9D0 /* Pods_PokemonDirectory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8045D2E271FA5756C45B22A1 /* Pods_PokemonDirectory.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,8 @@
 /* Begin PBXFileReference section */
 		0B36AC1378408601CFEDA67B /* Pods-PokemonDirectory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDirectory.release.xcconfig"; path = "Target Support Files/Pods-PokemonDirectory/Pods-PokemonDirectory.release.xcconfig"; sourceTree = "<group>"; };
 		2F880607ADD765BB3126EA6F /* Pods-PokemonDirectoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDirectoryTests.release.xcconfig"; path = "Target Support Files/Pods-PokemonDirectoryTests/Pods-PokemonDirectoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		6483668D2523152900F371E1 /* ControlFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFlowProtocol.swift; sourceTree = "<group>"; };
+		6483668F252317AF00F371E1 /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
 		648FE7E02521E3CB00345975 /* PokemonDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		648FE7E32521E3CB00345975 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		648FE7E72521E3CC00345975 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,10 +61,13 @@
 		648FE8172521F7E300345975 /* ControlFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFlow.swift; sourceTree = "<group>"; };
 		648FE81A2521F88100345975 /* UIWindow+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Transitions.swift"; sourceTree = "<group>"; };
 		648FE81D2521F9B900345975 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		648FE8202521FB3100345975 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		648FE8202521FB3100345975 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		648FE8222521FBB300345975 /* Color+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helper.swift"; sourceTree = "<group>"; };
-		648FE8242521FD6600345975 /* AppInfoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoUtils.swift; sourceTree = "<group>"; };
 		648FE8262521FE5A00345975 /* UiViewController+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+UIStoryboard.swift"; sourceTree = "<group>"; };
+		64D394CA25228AD900D14F29 /* PropertyWrapperAtomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapperAtomic.swift; sourceTree = "<group>"; };
+		64D394CD25228BF500D14F29 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		64D394CF25228C9400D14F29 /* ApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
+		64D394D12522977800D14F29 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
 		7C93DBA4144429A98EA41570 /* Pods-PokemonDirectoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDirectoryTests.debug.xcconfig"; path = "Target Support Files/Pods-PokemonDirectoryTests/Pods-PokemonDirectoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8045D2E271FA5756C45B22A1 /* Pods_PokemonDirectory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonDirectory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F7D4BFEBF2FAC67BEC4144 /* Pods-PokemonDirectory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDirectory.debug.xcconfig"; path = "Target Support Files/Pods-PokemonDirectory/Pods-PokemonDirectory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +180,7 @@
 			children = (
 				648FE81F2521FB1800345975 /* Utils */,
 				648FE8192521F85900345975 /* Estensions */,
+				64D394CC25228BD300D14F29 /* Protocols */,
 				648FE8152521F79500345975 /* AppManager.swift */,
 			);
 			path = Common;
@@ -196,10 +207,22 @@
 		648FE81F2521FB1800345975 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				648FE8202521FB3100345975 /* Constants.swift */,
-				648FE8242521FD6600345975 /* AppInfoUtils.swift */,
+				648FE8202521FB3100345975 /* Resources.swift */,
+				64D394CA25228AD900D14F29 /* PropertyWrapperAtomic.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		64D394CC25228BD300D14F29 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				64D394CD25228BF500D14F29 /* NetworkProtocol.swift */,
+				64D394CF25228C9400D14F29 /* ApiProtocol.swift */,
+				64D394D12522977800D14F29 /* RepositoryProtocol.swift */,
+				6483668D2523152900F371E1 /* ControlFlowProtocol.swift */,
+				6483668F252317AF00F371E1 /* PersistenceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B1E5002B728BF13E948B3180 /* Frameworks */ = {
@@ -362,16 +385,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6483668E2523152900F371E1 /* ControlFlowProtocol.swift in Sources */,
+				64D394CB25228AD900D14F29 /* PropertyWrapperAtomic.swift in Sources */,
 				648FE8162521F79500345975 /* AppManager.swift in Sources */,
 				648FE81B2521F88100345975 /* UIWindow+Transitions.swift in Sources */,
+				64D394CE25228BF500D14F29 /* NetworkProtocol.swift in Sources */,
 				648FE8182521F7E300345975 /* ControlFlow.swift in Sources */,
 				648FE7E82521E3CC00345975 /* ViewController.swift in Sources */,
-				648FE8212521FB3100345975 /* Constants.swift in Sources */,
+				648FE8212521FB3100345975 /* Resources.swift in Sources */,
 				648FE8272521FE5A00345975 /* UiViewController+UIStoryboard.swift in Sources */,
 				648FE7E42521E3CB00345975 /* AppDelegate.swift in Sources */,
+				64D394D025228C9400D14F29 /* ApiProtocol.swift in Sources */,
+				64836690252317AF00F371E1 /* PersistenceProtocol.swift in Sources */,
 				648FE81E2521F9B900345975 /* BaseViewController.swift in Sources */,
 				648FE8232521FBB300345975 /* Color+Helper.swift in Sources */,
-				648FE8252521FD6600345975 /* AppInfoUtils.swift in Sources */,
+				64D394D22522977800D14F29 /* RepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -509,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

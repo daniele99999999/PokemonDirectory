@@ -13,13 +13,12 @@ final class AppManager
 {
     static let shared = AppManager()
     
-    fileprivate (set) var controlFlow: ControlFlow!
+    fileprivate (set) var controlFlow: ControlFlowProtocol!
     
     private init() {}
     
     func didFinishLaunching()
     {
-        self.setupAppearance()
         self.setupControlFlow()
     }
     
@@ -29,11 +28,6 @@ final class AppManager
     }
     
     func applicationWillEnterForeground()
-    {
-        
-    }
-    
-    private func setupAppearance()
     {
         
     }
@@ -48,11 +42,11 @@ final class AppManager
         print("""
             
             *************** App Info ***************
-            BundleIdentifier: \(AppInfoUtils.getAppBundleIdentifier())
-            BundleName: \(AppInfoUtils.getAppBundleName())
-            DisplayName: \(AppInfoUtils.getAppDisplayName())
-            Version: \(AppInfoUtils.getAppVersion())
-            BuildVersion: \(AppInfoUtils.getAppBuildVersion())
+            BundleIdentifier: \(Resources.AppInfo.appBundleIdentifier)
+            BundleName: \(Resources.AppInfo.appBundleName)
+            DisplayName: \(Resources.AppInfo.appDisplayName)
+            Version: \(Resources.AppInfo.appVersion)
+            BuildVersion: \(Resources.AppInfo.appBuildVersion)
             ****************************************
             
             """)
@@ -73,6 +67,6 @@ final class AppManager
     
     func start()
     {
-        self.controlFlow.start()
+        self.controlFlow.flowStart()
     }
 }
