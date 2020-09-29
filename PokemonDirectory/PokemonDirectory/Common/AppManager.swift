@@ -32,6 +32,21 @@ final class AppManager
         
     }
     
+    func applicationWillResignActive()
+    {
+        
+    }
+    
+    func applicationDidBecomeActive()
+    {
+        
+    }
+    
+    func applicationWillTerminate()
+    {
+        
+    }
+    
     private func setupControlFlow()
     {
         self.controlFlow = ControlFlow()
