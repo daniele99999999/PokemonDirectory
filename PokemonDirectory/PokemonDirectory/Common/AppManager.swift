@@ -13,13 +13,18 @@ final class AppManager
 {
     static let shared = AppManager()
     
-    fileprivate (set) var controlFlow: ControlFlowProtocol!
+    fileprivate (set) var persistenceService: PersistenceProtocol
+    fileprivate (set) var controlFlow: ControlFlowProtocol
     
-    private init() {}
+    private init()
+    {
+        self.persistenceService = PersistenceService()
+        self.controlFlow = ControlFlow()
+    }
     
     func didFinishLaunching()
     {
-        self.setupControlFlow()
+        
     }
     
     func applicationDidEnterBackground()
@@ -45,11 +50,6 @@ final class AppManager
     func applicationWillTerminate()
     {
         
-    }
-    
-    private func setupControlFlow()
-    {
-        self.controlFlow = ControlFlow()
     }
     
     func logAppInfo()
