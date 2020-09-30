@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PersistenceService: PersistenceProtocol
+struct PersistenceService: PersistenceProtocol
 {
     private let userDefaults: UserDefaults
     

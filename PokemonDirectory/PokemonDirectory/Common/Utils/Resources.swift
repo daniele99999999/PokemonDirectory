@@ -29,6 +29,11 @@ enum Resources
         static func systemItalic(size: CGFloat) -> UIFont { return UIFont.italicSystemFont(ofSize: size) }
     }
     
+    enum Api
+    {
+        static let baseURL = URL(string: "https://pokeapi.co/api/v2/")!
+    }
+    
     enum AppInfo
     {
         static var appVersion: String

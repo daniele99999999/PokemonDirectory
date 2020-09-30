@@ -17,12 +17,12 @@ public protocol APIProtocol
 
 public protocol APIHandleResponseProtocol
 {
-    func handle<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) -> (Result<Data, Error>) -> Void
+    func handleResponse<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) -> (Result<Data, Error>) -> Void
 }
 
 public extension APIHandleResponseProtocol
 {
-    func handle<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) -> (Result<Data, Error>) -> Void
+    func handleResponse<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) -> (Result<Data, Error>) -> Void
     {
         return { result in
             switch result

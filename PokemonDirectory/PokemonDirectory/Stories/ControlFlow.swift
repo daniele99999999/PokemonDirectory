@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class ControlFlow
+struct ControlFlow
 {
     private let window: UIWindow
     private var globalNavigation: UINavigationController

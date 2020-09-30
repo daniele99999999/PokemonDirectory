@@ -13,12 +13,17 @@ final class AppManager
 {
     static let shared = AppManager()
     
-    fileprivate (set) var persistenceService: PersistenceProtocol
+    fileprivate (set) var repositoryService: RepositoryProtocol
     fileprivate (set) var controlFlow: ControlFlowProtocol
     
     private init()
     {
-        self.persistenceService = PersistenceService()
+        let networkService = NetworkService(session: URLSession(configuration: .default))
+        let apiService = ApiService(baseURL: Resources.Api.baseURL,
+                                    networkService: networkService)
+        let persistenceService = PersistenceService()
+        self.repositoryService = RepositoryService(apiService: apiService,
+                                                   persistenceService: persistenceService)
         self.controlFlow = ControlFlow()
     }
     
