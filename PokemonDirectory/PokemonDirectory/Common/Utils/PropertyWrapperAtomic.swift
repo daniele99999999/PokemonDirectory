@@ -9,15 +9,15 @@
 import Foundation
 
 @propertyWrapper
-public final class Atomic<Value: Hashable>
+public final class Atomic<Value>
 {
-    private let queue: DispatchQueue
+    private var queue = DispatchQueue(label: "com.atomic.queue")
     private var value: Value
 
     public init(wrappedValue: Value)
     {
         self.value = wrappedValue
-        self.queue = DispatchQueue(label: "com.atomic.queue.\(type(of: wrappedValue)).\(wrappedValue.hashValue)")
+        self.queue = DispatchQueue(label: "com.atomic.queue.\(type(of: wrappedValue)).\(ObjectIdentifier(self))")
     }
     
     public var wrappedValue: Value

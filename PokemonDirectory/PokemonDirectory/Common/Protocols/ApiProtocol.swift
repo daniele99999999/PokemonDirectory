@@ -12,7 +12,7 @@ public protocol APIProtocol
 {
     func apiGetList(limit: Int, offset: Int, completion: @escaping (Result<PokemonList, Error>) -> Void)
     func apiGetDetail(url: URL, completion: @escaping (Result<PokemonDetail, Error>) -> Void)
-    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void) -> VoidClosure
 }
 
 public protocol APIHandleResponseProtocol
@@ -31,14 +31,14 @@ public extension APIHandleResponseProtocol
                 do
                 {
                     let decoded = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(decoded))
+                    DispatchQueue.main.async { completion(.success(decoded)) }
                 }
                 catch let decodeError
                 {
-                    completion(.failure(decodeError))
+                    DispatchQueue.main.async { completion(.failure(decodeError)) }
                 }
             case .failure(let responseError):
-                completion(.failure(responseError))
+                DispatchQueue.main.async { completion(.failure(responseError)) }
             }
         }
     }

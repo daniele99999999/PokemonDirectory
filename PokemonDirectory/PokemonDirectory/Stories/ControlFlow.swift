@@ -11,13 +11,15 @@ import UIKit
 
 struct ControlFlow
 {
-    private let window: UIWindow
-    private var globalNavigation: UINavigationController
+    fileprivate let window: UIWindow
+    fileprivate let globalNavigation: UINavigationController
+    fileprivate let repositoryService: RepositoryProtocol
     
-    init()
+    init(repositoryService: RepositoryProtocol)
     {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.globalNavigation = UINavigationController()
+        self.repositoryService = repositoryService
     }
     
     private func setupRootController(viewController: UIViewController)
@@ -40,7 +42,7 @@ extension ControlFlow: ControlFlowProtocol
 {
     func flowStart()
     {
-        let vc = self.createVC()
+        let vc = self.createList()
         self.globalNavigation.setViewControllers([vc], animated: false)
         self.setupRootController(viewController: self.globalNavigation)
     }
@@ -48,14 +50,32 @@ extension ControlFlow: ControlFlowProtocol
 
 private extension ControlFlow
 {// create
-    func createVC() -> UIViewController
+    func createList() -> UIViewController
     {
-        let vc = ViewController.createOne()
+        let vc = ListViewController.createOne()
+        // TODO VM
+        return vc
+    }
+    
+    func createDetail(model: PokemonDetail) -> UIViewController
+    {
+        let vc = DetailViewController.createOne()
+        // TODO VM
         return vc
     }
 }
 
 private extension ControlFlow
 {// flow
+    func flowList(animated: Bool = true)
+    {
+        let vc = self.createList()
+        self.globalNavigation.pushViewController(vc, animated: animated)
+    }
     
+    func flowDetail(animated: Bool = true, model: PokemonDetail)
+    {
+        let vc = self.createDetail(model: model)
+        self.globalNavigation.pushViewController(vc, animated: animated)
+    }
 }

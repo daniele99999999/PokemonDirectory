@@ -8,8 +8,7 @@
 
 import Foundation
 
-public typealias NetworkCancellableTask = () -> Void
 public protocol NetworkProtocol
 {
-    @discardableResult func networkDataTask(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> NetworkCancellableTask
+    @discardableResult func networkDataTask(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> VoidClosure
 }

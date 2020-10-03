@@ -8,27 +8,34 @@
 
 import Foundation
 
-struct PersistenceService: PersistenceProtocol
+class PersistenceService
 {
+    private let encoder: JSONEncoder
+    private let decoder: JSONDecoder
     private let userDefaults: UserDefaults
     
     init()
     {
+        self.encoder = JSONEncoder()
+        self.decoder = JSONDecoder()
         self.userDefaults = UserDefaults.standard
     }
-    
-    func persistanceSave<T: Codable, ID: Hashable>(_ entity: T, id: ID) throws
+}
+
+extension PersistenceService: PersistenceProtocol
+{
+    func persistanceSave<T: Codable, ID: LosslessStringConvertible>(_ entity: T, id: ID) throws
     {
-        let data = try JSONEncoder().encode(entity)
-        let key = String(id.hashValue)
+        let key = id.description
+        let data = try self.encoder.encode(entity)
         self.userDefaults.set(data, forKey: key)
     }
     
-    func persistanceRetrieve<T: Codable, ID: Hashable>(_ entityType: T.Type, id: ID) throws -> T?
+    func persistanceRetrieve<T: Codable, ID: LosslessStringConvertible>(_ entityType: T.Type, id: ID) throws -> T?
     {
-        let key = String(id.hashValue)
+        let key = id.description
         guard let _data = self.userDefaults.data(forKey: key) else { return nil }
-        let element = try JSONDecoder().decode(T.self, from: _data)
+        let element = try self.decoder.decode(T.self, from: _data)
         
         return element
     }

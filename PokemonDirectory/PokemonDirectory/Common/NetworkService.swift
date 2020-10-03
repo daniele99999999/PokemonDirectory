@@ -25,7 +25,7 @@ struct NetworkService
 
 extension NetworkService: NetworkProtocol
 {
-    @discardableResult public func networkDataTask(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> NetworkCancellableTask
+    @discardableResult public func networkDataTask(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> VoidClosure
     {
         let task = self.session.dataTask(with: request)
         { data, _, error in

@@ -24,11 +24,11 @@ extension RepositoryService: RepositoryProtocol
 {
     func repoGetList(limit: Int, offset: Int, completion: @escaping (Result<PokemonList, Error>) -> Void)
     {
-        let hash = limit.hashValue ^ offset.hashValue
+        let id = "\(limit.description).\(offset.description)"
         var result: PokemonList? = nil
         do
         {
-            result = try self.persistenceService.persistanceRetrieve(PokemonList.self, id: hash)
+            result = try self.persistenceService.persistanceRetrieve(PokemonList.self, id: id)
         }
         catch let persistenceError { completion(.failure(persistenceError)) }
         
@@ -42,7 +42,7 @@ extension RepositoryService: RepositoryProtocol
                 case let .success(pokemonList):
                     do
                     {
-                        try self.persistenceService.persistanceSave(pokemonList, id: hash)
+                        try self.persistenceService.persistanceSave(pokemonList, id: id)
                         completion(.success(pokemonList))
                     }
                     catch let persistenceError { completion(.failure(persistenceError)) }
@@ -58,7 +58,7 @@ extension RepositoryService: RepositoryProtocol
     
     func repoGetDetail(url: URL, completion: @escaping (Result<PokemonDetail, Error>) -> Void)
     {
-        let id = url.lastPathComponent
+        let id = url.lastPathComponent.description
         var result: PokemonDetail? = nil
         do
         {
@@ -90,9 +90,9 @@ extension RepositoryService: RepositoryProtocol
         }
     }
     
-    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+    func repoGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void) -> VoidClosure
     {
-        let id = url.lastPathComponent
+        let id = url.absoluteString.description
         var result: Data? = nil
         do
         {
@@ -102,7 +102,7 @@ extension RepositoryService: RepositoryProtocol
         switch result
         {
         case .none:
-            self.apiService.apiGetImage(url: url)
+            let cancellableTask = self.apiService.apiGetImage(url: url)
             { result in
                 switch result
                 {
@@ -117,8 +117,10 @@ extension RepositoryService: RepositoryProtocol
                     completion(.failure(networkError))
                 }
             }
+            return cancellableTask
         case .some(let imageData):
             completion(.success(imageData))
+            return {}
         }
     }
 }

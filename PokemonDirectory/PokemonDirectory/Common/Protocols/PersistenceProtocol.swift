@@ -10,6 +10,6 @@ import Foundation
 
 public protocol PersistenceProtocol
 {
-    func persistanceSave<T: Codable, ID: Hashable>(_ entity: T, id: ID) throws
-    func persistanceRetrieve<T: Codable, ID: Hashable>(_ entityType: T.Type, id: ID) throws -> T? 
+    func persistanceSave<T: Codable, ID: LosslessStringConvertible>(_ entity: T, id: ID) throws
+    func persistanceRetrieve<T: Codable, ID: LosslessStringConvertible>(_ entityType: T.Type, id: ID) throws -> T? 
 }

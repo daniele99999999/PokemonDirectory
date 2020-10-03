@@ -43,7 +43,6 @@ struct ApiService
     }
 }
 
-// TODO implementare il giro del cancellable
 extension ApiService: APIHandleResponseProtocol {}
 extension ApiService: APIProtocol
 {
@@ -66,10 +65,10 @@ extension ApiService: APIProtocol
         _ = self.networkService.networkDataTask(request: request, completion: self.handleResponse(completion: completion))
     }
     
-    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+    func apiGetImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void) -> VoidClosure
     {
         let request = URLRequest(url: url)
-        _ = self.networkService.networkDataTask(request: request, completion: completion)
+        return self.networkService.networkDataTask(request: request, completion: completion)
     }
 }
 

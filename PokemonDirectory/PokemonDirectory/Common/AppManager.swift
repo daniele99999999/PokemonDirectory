@@ -12,9 +12,7 @@ import UIKit
 final class AppManager
 {
     static let shared = AppManager()
-    
-    fileprivate (set) var repositoryService: RepositoryProtocol
-    fileprivate (set) var controlFlow: ControlFlowProtocol
+    fileprivate var controlFlow: ControlFlowProtocol
     
     private init()
     {
@@ -22,39 +20,9 @@ final class AppManager
         let apiService = ApiService(baseURL: Resources.Api.baseURL,
                                     networkService: networkService)
         let persistenceService = PersistenceService()
-        self.repositoryService = RepositoryService(apiService: apiService,
-                                                   persistenceService: persistenceService)
-        self.controlFlow = ControlFlow()
-    }
-    
-    func didFinishLaunching()
-    {
-        
-    }
-    
-    func applicationDidEnterBackground()
-    {
-        
-    }
-    
-    func applicationWillEnterForeground()
-    {
-        
-    }
-    
-    func applicationWillResignActive()
-    {
-        
-    }
-    
-    func applicationDidBecomeActive()
-    {
-        
-    }
-    
-    func applicationWillTerminate()
-    {
-        
+        let repositoryService = RepositoryService(apiService: apiService,
+                                                  persistenceService: persistenceService)
+        self.controlFlow = ControlFlow(repositoryService: repositoryService)
     }
     
     func logAppInfo()
@@ -70,19 +38,6 @@ final class AppManager
             ****************************************
             
             """)
-    }
-    
-    var globalDefaultSupportedOrientation: UIInterfaceOrientationMask
-    {
-        switch UIDevice.current.userInterfaceIdiom
-        {
-        case .phone:
-            return .portrait
-        case .pad:
-            return .portrait
-        default:
-            return .all
-        }
     }
     
     func start()

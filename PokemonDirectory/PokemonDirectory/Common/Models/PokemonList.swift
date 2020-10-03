@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PokemonList: Codable, Hashable, Equatable
+public struct PokemonList: Codable, Equatable
 {
     public let count: Int
     public let next: URL?
@@ -18,7 +18,7 @@ public struct PokemonList: Codable, Hashable, Equatable
 
 public extension PokemonList
 {
-    struct PokemonListItem: Codable, Hashable, Equatable
+    struct PokemonListItem: Codable, Equatable
     {
         public let name: String
         public let url: URL

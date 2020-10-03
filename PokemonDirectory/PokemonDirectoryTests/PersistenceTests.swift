@@ -11,9 +11,43 @@ import XCTest
 
 class PersistenceTests: XCTestCase
 {
-   func testExample()
-   {
-       // This is an example of a functional test case.
-       // Use XCTAssert and related functions to verify your tests produce the correct results.
-   }
+    func testPersistencePokemonList()
+    {
+        let persistence = PersistenceService()
+        let data = PokemonList(count: 1,
+                               next: nil,
+                               previous: nil,
+                               results: [])
+        let id = UUID().uuidString
+        try? persistence.persistanceSave(data, id: id)
+        let result = try? persistence.persistanceRetrieve(PokemonList.self, id: id)
+        XCTAssertEqual(result, data)
+    }
+    
+    func testPersistencePokemonDetail()
+    {
+        let persistence = PersistenceService()
+        let data = PokemonDetail(id: 1,
+                                 name: "name",
+                                 sprites: PokemonDetail.PokemonDetailSprite(frontDefault: URL(string: "https://www.google.it")!,
+                                                                            frontShiny: nil,
+                                                                            backDefault: nil,
+                                                                            backShiny: nil),
+                                 stats: [],
+                                 types: [])
+        let id = UUID().uuidString
+        try? persistence.persistanceSave(data, id: id)
+        let result = try? persistence.persistanceRetrieve(PokemonDetail.self, id: id)
+        XCTAssertEqual(result, data)
+    }
+    
+    func testPersistencePokemonImage()
+    {
+        let persistence = PersistenceService()
+        let data = "test".data(using: .utf8)
+        let id = UUID().uuidString
+        try? persistence.persistanceSave(data, id: id)
+        let result = try? persistence.persistanceRetrieve(Data.self, id: id)
+        XCTAssertEqual(result, data)
+    }
 }

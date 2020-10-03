@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct PokemonDetail: Codable, Hashable, Equatable
+public struct PokemonDetail: Codable, Equatable
 {
     public let id: Int
     public let name: String
     public let sprites: PokemonDetailSprite
     public let stats: [PokemonDetailStat]
-    public let type: [PokemonDetailType]
+    public let types: [PokemonDetailType]
 }
 
 extension PokemonDetail
@@ -27,26 +27,26 @@ extension PokemonDetail
 
 public extension PokemonDetail
 {
-    struct PokemonDetailSprite: Codable, Hashable, Equatable
+    struct PokemonDetailSprite: Codable, Equatable
     {
-        public let backDefault: URL
-        public let backShiny: URL
         public let frontDefault: URL
-        public let frontShiny: URL
+        public let frontShiny: URL?
+        public let backDefault: URL?
+        public let backShiny: URL?
         
         enum CodingKeys: String, CodingKey
         {
-            case backDefault = "back_default"
-            case backShiny = "back_shiny"
             case frontDefault = "front_default"
             case frontShiny = "front_shiny"
+            case backDefault = "back_default"
+            case backShiny = "back_shiny"
         }
     }
 }
 
 public extension PokemonDetail
 {
-    struct PokemonDetailStat: Codable, Hashable, Equatable
+    struct PokemonDetailStat: Codable, Equatable
     {
         public let baseStat: Int
         public let nameStat: String
@@ -84,7 +84,7 @@ public extension PokemonDetail
 
 public extension PokemonDetail
 {
-    struct PokemonDetailType: Codable, Hashable, Equatable
+    struct PokemonDetailType: Codable, Equatable
     {
         public let nameType: String
         
