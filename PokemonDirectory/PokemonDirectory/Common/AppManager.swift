@@ -12,7 +12,7 @@ import UIKit
 final class AppManager
 {
     static let shared = AppManager()
-    fileprivate var controlFlow: ControlFlowProtocol
+    fileprivate var mainCoordinator: CoordinatorProtocol
     
     private init()
     {
@@ -22,7 +22,7 @@ final class AppManager
         let persistenceService = PersistenceService()
         let repositoryService = RepositoryService(apiService: apiService,
                                                   persistenceService: persistenceService)
-        self.controlFlow = ControlFlow(repositoryService: repositoryService)
+        self.mainCoordinator = MainCoordinator(repositoryService: repositoryService)
     }
     
     func logAppInfo()
@@ -42,6 +42,6 @@ final class AppManager
     
     func start()
     {
-        self.controlFlow.flowStart()
+        self.mainCoordinator.start()
     }
 }

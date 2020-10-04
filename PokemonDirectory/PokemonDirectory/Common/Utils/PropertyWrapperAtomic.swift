@@ -8,8 +8,7 @@
 
 import Foundation
 
-@propertyWrapper
-public final class Atomic<Value>
+@propertyWrapper public final class Atomic<Value>
 {
     private var queue = DispatchQueue(label: "com.atomic.queue")
     private var value: Value

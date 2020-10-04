@@ -1,5 +1,5 @@
 //
-//  ControlFlow.swift
+//  MainCoordinator.swift
 //  PokemonDirectory
 //
 //  Created by daniele on 28/09/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ControlFlow
+struct MainCoordinator
 {
     fileprivate let window: UIWindow
     fileprivate let globalNavigation: UINavigationController
@@ -27,20 +27,11 @@ struct ControlFlow
         self.window.rootViewController = viewController
         self.window.makeKeyAndVisible()
     }
-    
-    private var switchRootVCTransitionOptions: UIWindow.TransitionOptions
-    {
-        var options = UIWindow.TransitionOptions()
-        options.direction = .fade
-        options.duration = 0.25
-        options.style = .easeOut
-        return options
-    }
 }
 
-extension ControlFlow: ControlFlowProtocol
+extension MainCoordinator: CoordinatorProtocol
 {
-    func flowStart()
+    func start()
     {
         let vc = self.createList()
         self.globalNavigation.setViewControllers([vc], animated: false)
@@ -48,7 +39,7 @@ extension ControlFlow: ControlFlowProtocol
     }
 }
 
-private extension ControlFlow
+private extension MainCoordinator
 {// create
     func createList() -> UIViewController
     {
@@ -68,7 +59,7 @@ private extension ControlFlow
     }
 }
 
-private extension ControlFlow
+private extension MainCoordinator
 {// flow
     func flowList(animated: Bool = true)
     {

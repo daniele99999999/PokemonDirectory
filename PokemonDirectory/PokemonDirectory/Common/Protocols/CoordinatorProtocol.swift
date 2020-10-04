@@ -1,5 +1,5 @@
 //
-//  ControlFlowProtocol.swift
+//  CoordinatorProtocol.swift
 //  PokemonDirectory
 //
 //  Created by daniele on 29/09/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ControlFlowProtocol
+public protocol CoordinatorProtocol
 {
-    func flowStart()
+    func start()
 }
