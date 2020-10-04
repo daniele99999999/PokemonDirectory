@@ -27,7 +27,8 @@ extension PersistenceService: PersistenceProtocol
     func persistanceSave<T: Codable, ID: LosslessStringConvertible>(_ entity: T, id: ID) throws
     {
         let key = id.description
-        let data = try self.encoder.encode(entity)
+        let box = Box(value: entity)
+        let data = try self.encoder.encode(box)
         self.userDefaults.set(data, forKey: key)
     }
     
@@ -35,8 +36,17 @@ extension PersistenceService: PersistenceProtocol
     {
         let key = id.description
         guard let _data = self.userDefaults.data(forKey: key) else { return nil }
-        let element = try self.decoder.decode(T.self, from: _data)
-        
+        let box = try self.decoder.decode(Box<T>.self, from: _data)
+        let element = box.value
         return element
+    }
+}
+
+extension PersistenceService
+{
+    // Fixes Data Codable error prior iOS13
+    struct Box<T: Codable>: Codable
+    {
+        let value: T
     }
 }

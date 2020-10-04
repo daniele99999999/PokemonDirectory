@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: BaseViewController
+class DetailViewController: UIViewController
 {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var referenceImageView: UIImageView!

@@ -39,7 +39,6 @@
 		648FE8162521F79500345975 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8152521F79500345975 /* AppManager.swift */; };
 		648FE8182521F7E300345975 /* ControlFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8172521F7E300345975 /* ControlFlow.swift */; };
 		648FE81B2521F88100345975 /* UIWindow+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE81A2521F88100345975 /* UIWindow+Transitions.swift */; };
-		648FE81E2521F9B900345975 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE81D2521F9B900345975 /* BaseViewController.swift */; };
 		648FE8212521FB3100345975 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8202521FB3100345975 /* Resources.swift */; };
 		648FE8232521FBB300345975 /* Color+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8222521FBB300345975 /* Color+Helper.swift */; };
 		648FE8272521FE5A00345975 /* UiViewController+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FE8262521FE5A00345975 /* UiViewController+UIStoryboard.swift */; };
@@ -101,7 +100,6 @@
 		648FE8152521F79500345975 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		648FE8172521F7E300345975 /* ControlFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFlow.swift; sourceTree = "<group>"; };
 		648FE81A2521F88100345975 /* UIWindow+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Transitions.swift"; sourceTree = "<group>"; };
-		648FE81D2521F9B900345975 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		648FE8202521FB3100345975 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		648FE8222521FBB300345975 /* Color+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helper.swift"; sourceTree = "<group>"; };
 		648FE8262521FE5A00345975 /* UiViewController+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+UIStoryboard.swift"; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 		648FE8062521ED3A00345975 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				648FE81C2521F99500345975 /* Common */,
 				64572DEF25292ABC0031034B /* List */,
 				64572DF025292ACA0031034B /* Detail */,
 				648FE8172521F7E300345975 /* ControlFlow.swift */,
@@ -315,14 +312,6 @@
 				64572DFC2529E34E0031034B /* UIView+Autolayout.swift */,
 			);
 			path = Estensions;
-			sourceTree = "<group>";
-		};
-		648FE81C2521F99500345975 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				648FE81D2521F9B900345975 /* BaseViewController.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		648FE81F2521FB1800345975 /* Utils */ = {
@@ -532,7 +521,6 @@
 				64836690252317AF00F371E1 /* PersistenceProtocol.swift in Sources */,
 				64572DFD2529E34E0031034B /* UIView+Autolayout.swift in Sources */,
 				644F06C225252CA0009FEF36 /* NetworkService.swift in Sources */,
-				648FE81E2521F9B900345975 /* BaseViewController.swift in Sources */,
 				648FE8232521FBB300345975 /* Color+Helper.swift in Sources */,
 				64D394D22522977800D14F29 /* RepositoryProtocol.swift in Sources */,
 			);
@@ -735,7 +723,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PokemonDirectoryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -757,7 +744,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PokemonDirectoryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

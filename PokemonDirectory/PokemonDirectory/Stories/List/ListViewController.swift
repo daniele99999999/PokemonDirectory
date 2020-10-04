@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: BaseViewController
+class ListViewController: UIViewController
 {
     fileprivate var viewModel: ListViewModel!
     

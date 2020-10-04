@@ -29,12 +29,14 @@ class PersistenceTests: XCTestCase
         let persistence = PersistenceService()
         let data = PokemonDetail(id: 1,
                                  name: "name",
-                                 sprites: PokemonDetail.Sprite(frontDefault: URL(string: "https://www.google.it")!,
-                                                                            frontShiny: nil,
-                                                                            backDefault: nil,
-                                                                            backShiny: nil),
+                                 sprites: PokemonDetail.Sprite(frontDefault: nil,
+                                                               frontShiny: nil,
+                                                               backDefault: nil,
+                                                               backShiny: nil,
+                                                               officialArtwork: nil),
                                  stats: [],
                                  types: [])
+        
         let id = UUID().uuidString
         try? persistence.persistanceSave(data, id: id)
         let result = try? persistence.persistanceRetrieve(PokemonDetail.self, id: id)
