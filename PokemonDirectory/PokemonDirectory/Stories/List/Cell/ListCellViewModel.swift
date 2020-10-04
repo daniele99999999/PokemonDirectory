@@ -70,9 +70,9 @@ class ListCellViewModel
     
     private func reset()
     {
-        self.cancelDownload()
         DispatchQueue.main.async
         {
+            self.cancelDownload()
             self.output.reset?()
         }
     }

@@ -56,7 +56,6 @@ private extension ListViewController
         
         self.viewModel.output.title = { [weak self] title in
             self?.navigationItem.title = title
-            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.updates = { [weak self] updates in
@@ -67,7 +66,6 @@ private extension ListViewController
                 self?.tableView.insertRows(at: indexPaths, with: .fade)
             }
             self?.tableView.endUpdates()
-            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.isLastPage = { [weak self] isLastPage in

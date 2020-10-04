@@ -55,11 +55,13 @@ private extension ListCell
             self?.itemTitleLabel.text = nil
             self?.itemImageView.image = nil
             self?.setNeedsLayout()
+            self?.setNeedsDisplay()
         }
         
         self.viewModel?.output.image = { [weak self] imageData in
             self?.imageView?.image = UIImage(data: imageData)
             self?.setNeedsLayout()
+            self?.setNeedsDisplay()
         }
         
         self.viewModel?.output.name = { [weak self] name in
