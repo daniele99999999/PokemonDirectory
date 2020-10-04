@@ -9,13 +9,13 @@
 @testable import PokemonDirectory
 import Foundation
 
-struct PersistenceServiceMock<TM: Codable, IDM: LosslessStringConvertible & Hashable>: PersistenceProtocol
+class PersistenceServiceMock<TM: Codable, IDM: LosslessStringConvertible & Hashable>: PersistenceProtocol
 {
-    @Atomic public var list = [IDM: TM]()
+    var list = [IDM: TM]()
 
     func set(_ value: TM, for key: IDM)
     {
-        _list.mutate { $0[key] = value }
+        self.list[key] = value
     }
 
     func persistanceSave<T: Codable, ID: LosslessStringConvertible>(_ entity: T, id: ID) throws
@@ -25,7 +25,8 @@ struct PersistenceServiceMock<TM: Codable, IDM: LosslessStringConvertible & Hash
             let id = id as? IDM
             else { return }
 
-        _list.mutate{ $0[id] = entity }
+//        _list.mutate{ $0[id] = entity }
+        self.list[id] = entity
     }
 
     func persistanceRetrieve<T: Codable, ID: LosslessStringConvertible>(_ entityType: T.Type, id: ID) throws -> T?

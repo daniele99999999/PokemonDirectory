@@ -63,7 +63,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="xhX-a9-ueo" secondAttribute="bottom" id="ygz-8v-rjK"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <connections>
                                                     <outlet property="itemImageView" destination="pIX-dT-7vt" id="lre-wq-B9z"/>
                                                     <outlet property="itemTitleLabel" destination="xhX-a9-ueo" id="3HK-GX-Rvd"/>
