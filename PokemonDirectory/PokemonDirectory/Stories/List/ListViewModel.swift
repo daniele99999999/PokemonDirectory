@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct ListViewModel
+class ListViewModel
 {
     private let repository: RepositoryProtocol
     private let limit: Int
-    @Atomic private var page: Int = 1
+    private var page: Int = 1
     
     private var offset: Int
     {
         self.limit * (self.page - 1)
     }
-    @Atomic private var list: [PokemonList.Item] = []
+    private var list: [PokemonList.Item] = []
     
     let input = Input()
     let output = Output()
@@ -45,21 +45,18 @@ struct ListViewModel
         self.repository.repoGetList(limit: self.limit,
                                     offset: self.offset)
         { result in
-            switch result
+            DispatchQueue.main.async
             {
-            case .success(let pokemonList):
-                let indexPaths = (self.list.count..<self.list.count + pokemonList.results.count).map
+                switch result
                 {
-                    return IndexPath(item: $0, section: 0)
-                }
-                self._list.mutate { $0.append(contentsOf: pokemonList.results) }
-                DispatchQueue.main.async
-                {
-                    self.output.updates?(.insert(indexPaths))
-                }
-            case .failure(let error):
-                DispatchQueue.main.async
-                {
+                case .success(let pokemonList):
+                        let indexPaths = (self.list.count..<self.list.count + pokemonList.results.count).map
+                        {
+                            return IndexPath(item: $0, section: 0)
+                        }
+                        self.list.append(contentsOf: pokemonList.results)
+                        self.output.updates?(.insert(indexPaths))
+                case .failure(let error):
                     self.output.error?(error.localizedDescription)
                 }
             }
@@ -77,7 +74,7 @@ struct ListViewModel
     
     private func loadNextPage()
     {
-        self._page.mutate { $0 += 1 }
+        self.page += 1
         self.loadData()
     }
     

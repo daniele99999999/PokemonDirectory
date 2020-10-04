@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DetailViewModel
+class DetailViewModel
 {
     private let repository: RepositoryProtocol
     private let url: URL
