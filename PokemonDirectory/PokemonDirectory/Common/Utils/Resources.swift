@@ -11,9 +11,10 @@ import UIKit
 
 enum Resources
 {
-    enum Storyboards
+    enum Interface
     {
         static let main = "Main"
+        static let listCellIdentifier = "ListCellIdentifier"
     }
     
     enum Api

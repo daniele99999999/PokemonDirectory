@@ -6,5 +6,6 @@
   Copyright © 2020 DeeplyMadStudio. All rights reserved.
 */
 
+"list.title" = "Pokemon List";
 "detail.typology.title" = "Typology";
 "detail.stats.title" = "Stats";

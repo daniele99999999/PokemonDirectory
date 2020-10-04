@@ -21,7 +21,7 @@ public extension PokemonDetail
 {
     struct Sprite: Codable, Equatable
     {
-        public let frontDefault: URL?
+        public let frontDefault: URL
         public let frontShiny: URL?
         public let backDefault: URL?
         public let backShiny: URL?
@@ -46,7 +46,7 @@ public extension PokemonDetail
             case frontDefault = "front_default"
         }
         
-        public init(frontDefault: URL? = nil,
+        public init(frontDefault: URL,
                     frontShiny: URL? = nil,
                     backDefault: URL? = nil,
                     backShiny: URL? = nil,
@@ -62,7 +62,7 @@ public extension PokemonDetail
         public init(from decoder: Decoder) throws
         {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.frontDefault = try container.decodeIfPresent(URL.self, forKey: .frontDefault)
+            self.frontDefault = try container.decode(URL.self, forKey: .frontDefault)
             self.frontShiny = try container.decodeIfPresent(URL.self, forKey: .frontShiny)
             self.backDefault = try container.decodeIfPresent(URL.self, forKey: .backDefault)
             self.backShiny = try container.decodeIfPresent(URL.self, forKey: .backShiny)
@@ -97,6 +97,11 @@ public extension PokemonDetail.Sprite
                             self.backDefault,
                             self.backShiny]
         return urls.compactMap { $0 }
+    }
+    
+    var iconSprite: URL
+    {
+        return self.frontDefault
     }
 }
 

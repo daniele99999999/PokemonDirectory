@@ -23,7 +23,7 @@ class DetailViewController: UIViewController
     
     class func createOne(viewModel: DetailViewModel) -> DetailViewController
     {
-        let vc: DetailViewController = self.loadFromStoryboard(storyboardName: Resources.Storyboards.main)
+        let vc: DetailViewController = self.loadFromStoryboard(storyboardName: Resources.Interface.main)
         vc.viewModel = viewModel
         return vc
     }
@@ -57,6 +57,7 @@ private extension DetailViewController
             {
                 self?.activityIndicator.stopAnimating()
             }
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.error = { error in
@@ -66,14 +67,17 @@ private extension DetailViewController
         
         self.viewModel.output.title = { [weak self] title in
             self?.navigationItem.title = title
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.name = { [weak self] name in
             self?.nameLabel.text = name
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.referenceImage = { [weak self] data in
             self?.referenceImageView.image = UIImage(data: data)
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.images = { [weak self] item in
@@ -83,22 +87,27 @@ private extension DetailViewController
             imageView.contentMode = .scaleAspectFit
             imageView.clipsToBounds = true
             self?.imagesContainerStackView.addArrangedSubview(imageView)
+            self?.view.setNeedsLayout()
         }
 
         self.viewModel.output.statsTitle = { [weak self] title in
             self?.statsTitleLabel.text = title
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.stats = { [weak self] stats in
             self?.statsLabel.text = stats.joined(separator: "\n")
+            self?.view.setNeedsLayout()
         }
 
         self.viewModel.output.typologyTitle = { [weak self] title in
             self?.typologyTitleLabel.text = title
+            self?.view.setNeedsLayout()
         }
         
         self.viewModel.output.typology = { [weak self] typology in
             self?.typologyLabel.text = typology.joined(separator: "\n")
+            self?.view.setNeedsLayout()
         }
     }
 }
