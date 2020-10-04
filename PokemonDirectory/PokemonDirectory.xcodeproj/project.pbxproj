@@ -22,6 +22,11 @@
 		64572DEA2528FACB0031034B /* pokemonListDataMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 64572DE92528FACB0031034B /* pokemonListDataMock.json */; };
 		64572DEC2528FAE70031034B /* pokemonDetailDataMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 64572DEB2528FAE70031034B /* pokemonDetailDataMock.json */; };
 		64572DEE252908830031034B /* PersistenceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572DED252908830031034B /* PersistenceServiceMock.swift */; };
+		64572DF325292B200031034B /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572DF225292B200031034B /* ListViewModel.swift */; };
+		64572DF525292DBB0031034B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572DF425292DBB0031034B /* DetailViewModel.swift */; };
+		64572DFD2529E34E0031034B /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572DFC2529E34E0031034B /* UIView+Autolayout.swift */; };
+		64572DFF252A13E70031034B /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572DFE252A13E70031034B /* DetailViewModelTests.swift */; };
+		64572E01252A14980031034B /* ListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64572E00252A14980031034B /* ListViewModelTests.swift */; };
 		64779C872528CE6900766374 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64779C862528CE6900766374 /* NetworkServiceMock.swift */; };
 		64779C892528D06000766374 /* RepositoryServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64779C882528D06000766374 /* RepositoryServiceMock.swift */; };
 		6483668E2523152900F371E1 /* ControlFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483668D2523152900F371E1 /* ControlFlowProtocol.swift */; };
@@ -75,6 +80,11 @@
 		64572DE92528FACB0031034B /* pokemonListDataMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemonListDataMock.json; sourceTree = "<group>"; };
 		64572DEB2528FAE70031034B /* pokemonDetailDataMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemonDetailDataMock.json; sourceTree = "<group>"; };
 		64572DED252908830031034B /* PersistenceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceMock.swift; sourceTree = "<group>"; };
+		64572DF225292B200031034B /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		64572DF425292DBB0031034B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		64572DFC2529E34E0031034B /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		64572DFE252A13E70031034B /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
+		64572E00252A14980031034B /* ListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTests.swift; sourceTree = "<group>"; };
 		64779C862528CE6900766374 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		64779C882528D06000766374 /* RepositoryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceMock.swift; sourceTree = "<group>"; };
 		6483668D2523152900F371E1 /* ControlFlowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFlowProtocol.swift; sourceTree = "<group>"; };
@@ -176,6 +186,35 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		64572DEF25292ABC0031034B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				64D8C38625268D8E003C0455 /* ListViewController.swift */,
+				64572DF225292B200031034B /* ListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		64572DF025292ACA0031034B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				64D8C38825268DA0003C0455 /* DetailViewController.swift */,
+				64572DF425292DBB0031034B /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		64572DF125292AE00031034B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				644F06BF25246CCE009FEF36 /* PersistenceService.swift */,
+				644F06C125252CA0009FEF36 /* NetworkService.swift */,
+				644F06C32525307C009FEF36 /* ApiService.swift */,
+				644F06C5252541A0009FEF36 /* RepositoryService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		648FE7D72521E3CB00345975 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +257,8 @@
 				644F06B725246669009FEF36 /* PersistenceTests.swift */,
 				64D8C38A252693BB003C0455 /* ApiDecodingTests.swift */,
 				644F06B925246A3B009FEF36 /* RepositoryTests.swift */,
+				64572E00252A14980031034B /* ListViewModelTests.swift */,
+				64572DFE252A13E70031034B /* DetailViewModelTests.swift */,
 				648FE7FC2521E3CE00345975 /* Info.plist */,
 			);
 			path = PokemonDirectoryTests;
@@ -236,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				648FE81C2521F99500345975 /* Common */,
-				64D8C38625268D8E003C0455 /* ListViewController.swift */,
-				64D8C38825268DA0003C0455 /* DetailViewController.swift */,
+				64572DEF25292ABC0031034B /* List */,
+				64572DF025292ACA0031034B /* Detail */,
 				648FE8172521F7E300345975 /* ControlFlow.swift */,
 			);
 			path = Stories;
@@ -259,11 +300,8 @@
 				648FE8192521F85900345975 /* Estensions */,
 				64D394CC25228BD300D14F29 /* Protocols */,
 				644F06B22523DE20009FEF36 /* Models */,
+				64572DF125292AE00031034B /* Services */,
 				648FE8152521F79500345975 /* AppManager.swift */,
-				644F06BF25246CCE009FEF36 /* PersistenceService.swift */,
-				644F06C125252CA0009FEF36 /* NetworkService.swift */,
-				644F06C32525307C009FEF36 /* ApiService.swift */,
-				644F06C5252541A0009FEF36 /* RepositoryService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -274,6 +312,7 @@
 				648FE81A2521F88100345975 /* UIWindow+Transitions.swift */,
 				648FE8222521FBB300345975 /* Color+Helper.swift */,
 				648FE8262521FE5A00345975 /* UiViewController+UIStoryboard.swift */,
+				64572DFC2529E34E0031034B /* UIView+Autolayout.swift */,
 			);
 			path = Estensions;
 			sourceTree = "<group>";
@@ -483,12 +522,15 @@
 				644F06B62523ECCF009FEF36 /* PokemonDetail.swift in Sources */,
 				644F06C025246CCE009FEF36 /* PersistenceService.swift in Sources */,
 				644F06B42523EB03009FEF36 /* PokemonList.swift in Sources */,
+				64572DF525292DBB0031034B /* DetailViewModel.swift in Sources */,
 				648FE8212521FB3100345975 /* Resources.swift in Sources */,
+				64572DF325292B200031034B /* ListViewModel.swift in Sources */,
 				648FE8272521FE5A00345975 /* UiViewController+UIStoryboard.swift in Sources */,
 				648FE7E42521E3CB00345975 /* AppDelegate.swift in Sources */,
 				64D394D025228C9400D14F29 /* ApiProtocol.swift in Sources */,
 				64D8C38725268D8E003C0455 /* ListViewController.swift in Sources */,
 				64836690252317AF00F371E1 /* PersistenceProtocol.swift in Sources */,
+				64572DFD2529E34E0031034B /* UIView+Autolayout.swift in Sources */,
 				644F06C225252CA0009FEF36 /* NetworkService.swift in Sources */,
 				648FE81E2521F9B900345975 /* BaseViewController.swift in Sources */,
 				648FE8232521FBB300345975 /* Color+Helper.swift in Sources */,
@@ -505,8 +547,10 @@
 				644F06B825246669009FEF36 /* PersistenceTests.swift in Sources */,
 				64779C892528D06000766374 /* RepositoryServiceMock.swift in Sources */,
 				64779C872528CE6900766374 /* NetworkServiceMock.swift in Sources */,
+				64572DFF252A13E70031034B /* DetailViewModelTests.swift in Sources */,
 				644F06BA25246A3B009FEF36 /* RepositoryTests.swift in Sources */,
 				64D8C38B252693BB003C0455 /* ApiDecodingTests.swift in Sources */,
+				64572E01252A14980031034B /* ListViewModelTests.swift in Sources */,
 				64572DEE252908830031034B /* PersistenceServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

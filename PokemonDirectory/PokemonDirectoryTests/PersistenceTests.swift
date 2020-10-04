@@ -29,7 +29,7 @@ class PersistenceTests: XCTestCase
         let persistence = PersistenceService()
         let data = PokemonDetail(id: 1,
                                  name: "name",
-                                 sprites: PokemonDetail.PokemonDetailSprite(frontDefault: URL(string: "https://www.google.it")!,
+                                 sprites: PokemonDetail.Sprite(frontDefault: URL(string: "https://www.google.it")!,
                                                                             frontShiny: nil,
                                                                             backDefault: nil,
                                                                             backShiny: nil),

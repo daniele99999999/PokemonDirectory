@@ -52,15 +52,18 @@ private extension ControlFlow
 {// create
     func createList() -> UIViewController
     {
-        let vc = ListViewController.createOne()
-        // TODO VM
+        let viewModel = ListViewModel(repository: self.repositoryService)
+        viewModel.navigation.requestDetail = { pokemonDetail in
+            self.flowDetail(model: pokemonDetail)
+        }
+        let vc = ListViewController.createOne(viewModel: viewModel)
         return vc
     }
     
-    func createDetail(model: PokemonDetail) -> UIViewController
+    func createDetail(model: PokemonList.Item) -> UIViewController
     {
-        let vc = DetailViewController.createOne()
-        // TODO VM
+        let viewModel = DetailViewModel(repository: self.repositoryService, item: model)
+        let vc = DetailViewController.createOne(viewModel: viewModel)
         return vc
     }
 }
@@ -73,7 +76,7 @@ private extension ControlFlow
         self.globalNavigation.pushViewController(vc, animated: animated)
     }
     
-    func flowDetail(animated: Bool = true, model: PokemonDetail)
+    func flowDetail(animated: Bool = true, model: PokemonList.Item)
     {
         let vc = self.createDetail(model: model)
         self.globalNavigation.pushViewController(vc, animated: animated)

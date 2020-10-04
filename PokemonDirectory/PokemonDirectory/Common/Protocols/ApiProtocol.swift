@@ -31,14 +31,14 @@ public extension APIHandleResponseProtocol
                 do
                 {
                     let decoded = try JSONDecoder().decode(T.self, from: data)
-                    DispatchQueue.main.async { completion(.success(decoded)) }
+                    completion(.success(decoded))
                 }
                 catch let decodeError
                 {
-                    DispatchQueue.main.async { completion(.failure(decodeError)) }
+                    completion(.failure(decodeError))
                 }
             case .failure(let responseError):
-                DispatchQueue.main.async { completion(.failure(responseError)) }
+                completion(.failure(responseError))
             }
         }
     }

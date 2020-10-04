@@ -12,22 +12,14 @@ public struct PokemonDetail: Codable, Equatable
 {
     public let id: Int
     public let name: String
-    public let sprites: PokemonDetailSprite
-    public let stats: [PokemonDetailStat]
-    public let types: [PokemonDetailType]
-}
-
-extension PokemonDetail
-{
-    public var referenceImage: URL
-    {
-        return self.sprites.frontDefault
-    }
+    public let sprites: Sprite
+    public let stats: [Stat]
+    public let types: [Typology]
 }
 
 public extension PokemonDetail
 {
-    struct PokemonDetailSprite: Codable, Equatable
+    struct Sprite: Codable, Equatable
     {
         public let frontDefault: URL
         public let frontShiny: URL?
@@ -44,9 +36,21 @@ public extension PokemonDetail
     }
 }
 
+public extension PokemonDetail.Sprite
+{
+    var allSprites: [URL]
+    {
+        let urls: [URL?] = [self.frontDefault,
+                            self.frontShiny,
+                            self.backDefault,
+                            self.backShiny]
+        return urls.compactMap { $0 }
+    }
+}
+
 public extension PokemonDetail
 {
-    struct PokemonDetailStat: Codable, Equatable
+    struct Stat: Codable, Equatable
     {
         public let baseStat: Int
         public let nameStat: String
@@ -54,7 +58,7 @@ public extension PokemonDetail
         enum CodingKeys: String, CodingKey
         {
             case baseStat = "base_stat"
-            case nameStat = "stat"
+            case stat
         }
         
         enum NameCodingKeys: String, CodingKey
@@ -67,7 +71,7 @@ public extension PokemonDetail
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.baseStat = try container.decode(Int.self, forKey: .baseStat)
 
-            let nameContainer = try container.nestedContainer(keyedBy: NameCodingKeys.self, forKey: .nameStat)
+            let nameContainer = try container.nestedContainer(keyedBy: NameCodingKeys.self, forKey: .stat)
             self.nameStat = try nameContainer.decode(String.self, forKey: .name)
         }
         
@@ -76,7 +80,7 @@ public extension PokemonDetail
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(self.baseStat, forKey: .baseStat)
             
-            var nameContainer = container.nestedContainer(keyedBy: NameCodingKeys.self, forKey: .nameStat)
+            var nameContainer = container.nestedContainer(keyedBy: NameCodingKeys.self, forKey: .stat)
             try nameContainer.encodeIfPresent(self.nameStat, forKey: .name)
         }
     }
@@ -84,7 +88,7 @@ public extension PokemonDetail
 
 public extension PokemonDetail
 {
-    struct PokemonDetailType: Codable, Equatable
+    struct Typology: Codable, Equatable
     {
         public let nameType: String
         

@@ -86,7 +86,6 @@ extension RepositoryService: RepositoryProtocol
             }
         case .some(let pokemonDetail):
             completion(.success(pokemonDetail))
-            return
         }
     }
     

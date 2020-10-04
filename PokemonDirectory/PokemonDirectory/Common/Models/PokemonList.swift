@@ -13,12 +13,12 @@ public struct PokemonList: Codable, Equatable
     public let count: Int
     public let next: URL?
     public let previous: URL?
-    public let results: [PokemonListItem]
+    public let results: [Item]
 }
 
 public extension PokemonList
 {
-    struct PokemonListItem: Codable, Equatable
+    struct Item: Codable, Equatable
     {
         public let name: String
         public let url: URL
