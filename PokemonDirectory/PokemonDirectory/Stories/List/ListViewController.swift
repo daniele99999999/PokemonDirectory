@@ -33,6 +33,13 @@ class ListViewController: UIViewController
         
         self.viewModel.input.loadData?()
     }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        self.showBackArrowOnly()
+    }
 }
 
 private extension ListViewController
