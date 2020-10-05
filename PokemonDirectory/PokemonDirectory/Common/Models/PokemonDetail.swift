@@ -123,6 +123,13 @@ public extension PokemonDetail
             case name
         }
         
+        public init(baseStat: Int,
+                    nameStat: String)
+        {
+            self.baseStat = baseStat
+            self.nameStat = nameStat
+        }
+        
         public init(from decoder: Decoder) throws
         {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -157,6 +164,11 @@ public extension PokemonDetail
         enum NameCodingKeys: String, CodingKey
         {
             case name
+        }
+        
+        public init(nameType: String)
+        {
+            self.nameType = nameType
         }
         
         public init(from decoder: Decoder) throws

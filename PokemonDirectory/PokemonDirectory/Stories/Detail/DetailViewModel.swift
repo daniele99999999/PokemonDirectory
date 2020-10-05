@@ -45,6 +45,7 @@ class DetailViewModel
                 switch result
                 {
                 case .success(let pokemonDetail):
+                    self.output.name?(pokemonDetail.name)
                     let stats = pokemonDetail.stats.map{ "\($0.nameStat): \($0.baseStat)" }
                     self.output.stats?(stats)
                     
@@ -55,8 +56,6 @@ class DetailViewModel
                     { index, url in
                         self.loadImage(url: url, index: index)
                     }
-                    
-                    self.output.name?(pokemonDetail.name)
                 case .failure(let error):
                     self.output.error?(error.localizedDescription)
                 }

@@ -9,7 +9,7 @@
 @testable import PokemonDirectory
 import Foundation
 
-struct RepositoryServiceMock: RepositoryProtocol
+class RepositoryServiceMock: RepositoryProtocol
 {
     var _repoGetList:((Int, Int, @escaping (Result<PokemonList, Error>) -> Void) -> Void)?
     func repoGetList(limit: Int, offset: Int, completion: @escaping (Result<PokemonList, Error>) -> Void)

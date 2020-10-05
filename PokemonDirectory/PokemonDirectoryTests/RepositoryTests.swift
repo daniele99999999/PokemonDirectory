@@ -19,8 +19,8 @@ class RepositoryTests: XCTestCase
         let id = "\(limit.description).\(offset.description)"
         
         let expectation = self.expectation(description: "testRepositoryPokemonList")
-        var apiServiceMock = ApiServiceMock()
-        apiServiceMock._apiGetList = {_, _, completion in
+        let apiServiceMock = ApiServiceMock()
+        apiServiceMock._apiGetList = { _, _, completion in
             XCTFail("ApiService should not be called")
         }
         let persistenceServiceMock = PersistenceServiceMock<PokemonList, String>()
@@ -46,8 +46,8 @@ class RepositoryTests: XCTestCase
         let id = url.lastPathComponent.description
         
         let expectation = self.expectation(description: "testRepositoryPokemonDetail")
-        var apiServiceMock = ApiServiceMock()
-        apiServiceMock._apiGetDetail = {_, completion in
+        let apiServiceMock = ApiServiceMock()
+        apiServiceMock._apiGetDetail = { _, completion in
             XCTFail("ApiService should not be called")
         }
         let persistenceServiceMock = PersistenceServiceMock<PokemonDetail, String>()
@@ -72,7 +72,7 @@ class RepositoryTests: XCTestCase
         let id = url.absoluteString.description
         
         let expectation = self.expectation(description: "testRepositoryImage")
-        var apiServiceMock = ApiServiceMock()
+        let apiServiceMock = ApiServiceMock()
         apiServiceMock._getImage = { _, completion in
             XCTFail("ApiService should not be called")
             return {}

@@ -9,7 +9,7 @@
 @testable import PokemonDirectory
 import Foundation
 
-struct NetworkServiceMock: NetworkProtocol
+class NetworkServiceMock: NetworkProtocol
 {
     var _networkDataTask: ((URLRequest, @escaping (Result<Data, Error>) -> Void) -> Void)?
     var _cancellable: VoidClosure = {}

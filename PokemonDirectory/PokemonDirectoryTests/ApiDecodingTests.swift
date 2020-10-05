@@ -21,8 +21,8 @@ class ApiDecodingTests: XCTestCase
         let offset = 0
         
         let expectation = self.expectation(description: "testDecodingApiList")
-        var networkServiceMock = NetworkServiceMock()
-        networkServiceMock._networkDataTask = {_, completion in
+        let networkServiceMock = NetworkServiceMock()
+        networkServiceMock._networkDataTask = { _, completion in
             completion(.success(self.pokemonListDataMock))
         }
         
@@ -46,8 +46,8 @@ class ApiDecodingTests: XCTestCase
         let url = URL(string: "https://www.google.com")!
         
         let expectation = self.expectation(description: "testDecodingApiDetail")
-        var networkServiceMock = NetworkServiceMock()
-        networkServiceMock._networkDataTask = {_, completion in
+        let networkServiceMock = NetworkServiceMock()
+        networkServiceMock._networkDataTask = { _, completion in
             completion(.success(self.pokemonDetailDataMock))
         }
         

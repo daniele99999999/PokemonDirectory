@@ -124,10 +124,10 @@ extension ListViewModel
     
     class Output
     {
+        var isLoading: VoidOutputClosure<Bool>? // TODO
         var error: VoidOutputClosure<String>?
         var title: VoidOutputClosure<String>?
         var updates: VoidOutputClosure<DataUpdate>?
-        var isLastPage: VoidOutputClosure<Bool>? // TODO
     }
     
     class Navigation

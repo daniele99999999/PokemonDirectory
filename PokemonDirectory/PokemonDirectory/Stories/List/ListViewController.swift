@@ -68,8 +68,8 @@ private extension ListViewController
             self?.tableView.endUpdates()
         }
         
-        self.viewModel.output.isLastPage = { [weak self] isLastPage in
-            // TODO
+        self.viewModel.output.isLoading = { [weak self] isLoading in
+            // TODO inserire la logica nel viewmodel per sapere se sono sull'ultima pagina o meno, e scatenare l'activity
             self?.view.setNeedsLayout()
         }
     }

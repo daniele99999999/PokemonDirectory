@@ -9,7 +9,7 @@
 @testable import PokemonDirectory
 import Foundation
 
-struct ApiServiceMock: APIProtocol
+class ApiServiceMock: APIProtocol
 {
     var _apiGetList:((Int, Int, @escaping (Result<PokemonList, Error>) -> Void) -> Void)?
     func apiGetList(limit: Int, offset: Int, completion: @escaping (Result<PokemonList, Error>) -> Void)
