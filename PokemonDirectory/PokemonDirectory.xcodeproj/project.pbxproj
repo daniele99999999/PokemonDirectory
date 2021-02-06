@@ -130,13 +130,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FE2CF8F89D7BE8FCCFF793B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		644F06B22523DE20009FEF36 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +213,6 @@
 				648FE7E22521E3CB00345975 /* PokemonDirectory */,
 				648FE7F92521E3CE00345975 /* PokemonDirectoryTests */,
 				648FE7E12521E3CB00345975 /* Products */,
-				3FE2CF8F89D7BE8FCCFF793B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
